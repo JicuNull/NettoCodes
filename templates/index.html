@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - NettoCodes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Raleway.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/top-alert-ie-E-Mail-Confirmation.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <span>NettoCodes</span>
+            </a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1" style="flex-grow: 0;">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#activate">Aktivieren</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header id="activate" class="pt-5">
+        <div class="container pt-4 pt-xl-5">
+            <div class="row pt-5">
+                <div class="col-md-8 text-center text-md-start mx-auto">
+                    <div class="text-center">
+                        <h1 class="display-4 fw-bold mb-5">Aktiviere Netto Gutscheine&nbsp;<span class="underline">ohne</span>&nbsp;AR</h1>
+                        <p class="fs-5 text-muted mb-5">1. Code auswählen, 2. E-Mail eingeben, 3. Aktivieren, fertig!</p>
+                        <form class="d-flex justify-content-center flex-wrap" method="post" style="width: 80%;margin-left: auto;margin-right: auto;">
+                            <div class="shadow-lg mb-4" style="flex: 1;">
+                                <select class="form-select" name="code" required="" readonly="">
+                                    {% for code in codes %}
+                                        <option value="{{ code['id'] }}">{{ code['title'] }} (bis {{ code['valid_to'] }})</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div style="flex-basis: 100%;height: 0;"></div>
+                            <div class="shadow-lg mb-3" style="flex: 1;"><input class="form-control" type="email" name="email" placeholder="Netto Email" inputmode="email" autofocus="" required=""></div>
+                            <div class="shadow-lg mb-3"><input class="btn btn-primary" type="submit" value="Aktivieren" style="margin-left: 20px;"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-10 mx-auto">
+                    <div class="text-center position-relative"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div class="bg-primary border rounded border-0 border-primary overflow-hidden"></div>
+        </div>
+    </section>
+    <section class="py-4 py-xl-5 mb-5">
+        <div class="container" id="faq">
+            <div class="row mb-2">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-6 fw-bold mb-5"><span class="pb-3 underline">FAQ<br></span></h2>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-8 mx-auto">
+                    <div class="accordion text-muted" role="tablist" id="accordion-1">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true" aria-controls="accordion-1 .item-1">Ist diese Webseite offiziell? Wird sie von Netto Marken-Discount betrieben?</button></h2>
+                            <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p>Diese Webseite ist in keiner Weise mit Netto Marken-Discount oder einem seiner Partner oder Tochterunternehmen verbunden, autorisiert, gepflegt, gesponsert oder gebilligt. Dies ist ein unabhängiger und inoffizieller Dienst. Die Verwendung erfolgt auf eigene Gefahr.</p>
+                                    <p class="mb-0">Diese Webseite wurde zu Lernzwecken entwickelt.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">Was kann diese Webseite?</button></h2>
+                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p class="mb-0">Netto veröffentlicht in unregelmäßigen Abständen Codes für exklusive Angebote bei Nutzung der Netto-App, welche mittels Augmented Reality (AR) gescannt werden können und anschließend dem eigenen Benutzerkonto zugewiesen werden. Diese Webseite erlaubt eine Aktivierung dieser Codes, ohne dass das eigene Handy AR unterstützt.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-3">Wozu wird meine E-Mail gebraucht? Ich vertraue der Seite nicht!</button></h2>
+                            <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p>Verständlich&nbsp;ツ</p>
+                                    <p class="mb-0">Netto identifiziert Accounts beim Aktivieren von Codes anhand ihrer E-Mail-Adresse. Trust me.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container py-4 py-lg-5">
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0">© 2023 NettoCodes</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="https://github.com/JicuNull">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-github">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+        <div class="d-flex flex-row align-items-center bottom-alert fixed-bottom bottom-alert-{{ category }}">
+            <div class="container">
+                <div class="row">
+                    <div class="col social-links">
+                        <p class="m-0 text-center fw-bold">{{ message }}<a class="ms-2" href="#"><i class="fas fa-info-circle"></i></a>&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/startup-modern.js') }}"></script>
+</body>
+
+</html>

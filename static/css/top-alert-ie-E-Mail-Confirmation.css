@@ -1,0 +1,17 @@
+.bottom-alert {
+  font-weight: 400;
+  height: 42px;
+}
+
+.bottom-alert p, .bottom-alert i {
+  color: white;
+}
+
+.bottom-alert.bottom-alert-message {
+  background-color: var(--bs-indigo);
+}
+
+.bottom-alert.bottom-alert-error {
+  background-color: var(--bs-red);
+}
+
